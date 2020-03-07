@@ -1,0 +1,7 @@
+C:\Users\Renan\source\repos\INSS\INSS\bin\Debug\INSS.exe.config
+C:\Users\Renan\source\repos\INSS\INSS\bin\Debug\INSS.exe
+C:\Users\Renan\source\repos\INSS\INSS\bin\Debug\INSS.pdb
+C:\Users\Renan\source\repos\INSS\INSS\obj\Debug\INSS.csprojAssemblyReference.cache
+C:\Users\Renan\source\repos\INSS\INSS\obj\Debug\INSS.csproj.CoreCompileInputs.cache
+C:\Users\Renan\source\repos\INSS\INSS\obj\Debug\INSS.exe
+C:\Users\Renan\source\repos\INSS\INSS\obj\Debug\INSS.pdb
