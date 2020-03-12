@@ -32,26 +32,8 @@ namespace INSS
             {
                 calculo_INSS = renda * 0.11;
             }
-            calculo_IMP = (renda - (dependentes * 189.59));
-            if (calculo_IMP <= 1903.98)
-            {
-                resultado = 0;
-            }
-            else
-            if (calculo_IMP >= 1903.08 && calculo_IMP <= 2826.65)
-            {
-                resultado = calculo_IMP * 0.075;
-            }
-            else
-            if (calculo_IMP >= 2826.65 && calculo_IMP <= 3751.05)
-            {
-                resultado = calculo_IMP * 0.15;
-            }
-            else
-            if (calculo_IMP >= 3751.05 && calculo_IMP <= 4664.68)
-            {
-                resultado = calculo_IMP * 0.275;
-            }
+            
+            
 
             liquido = renda - resultado - calculo_INSS;
             Console.WriteLine("\nO Imposto INSS a ser aplicado e de: " +Convert.ToString(calculo_INSS));
