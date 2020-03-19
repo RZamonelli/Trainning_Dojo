@@ -18,3 +18,4 @@ C:\C#\Trainning_Dojo\INSS\INSS\bin\Debug\INSS.pdb
 C:\C#\Trainning_Dojo\INSS\INSS\obj\Debug\INSS.csproj.CoreCompileInputs.cache
 C:\C#\Trainning_Dojo\INSS\INSS\obj\Debug\INSS.exe
 C:\C#\Trainning_Dojo\INSS\INSS\obj\Debug\INSS.pdb
+C:\C#\Trainning_Dojo\INSS\INSS\obj\Debug\INSS.csprojAssemblyReference.cache

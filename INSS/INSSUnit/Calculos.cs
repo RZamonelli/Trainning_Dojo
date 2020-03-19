@@ -8,21 +8,41 @@ namespace INSSUnit
     public class Calculos
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestINSS1300()
         {
-            var irrf = new CalculoIRRF();
-            var imposto = irrf.CalcularIRRF(3000m, 2);
+            var inss = new CalculosINSS();
+            decimal resultado = inss.CalculoINSS(1300m);
 
-            Assert.AreEqual(196.56150m, imposto);
+            Assert.AreEqual(143m, resultado);
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void TestDependents1300()
+        {
+            var dependents = new Salario();
+            decimal resultado = dependents.CalcularDescontoDependentes(1300m, 0);
+
+            Assert.AreEqual(1300m, resultado);
+        }
+
+        [TestMethod]
+        public void TestIRRF1300()
         {
             var irrf = new CalculoIRRF();
-            var aliquota = irrf.CalcularRendaLiquida(3000m, 2);
+            decimal resultado = irrf.CalcularIRRF(1300m, 0);
 
-            Assert.AreEqual(2620.82m, aliquota);
+            Assert.AreEqual(0m, resultado);
         }
+
+        [TestMethod]
+        public void TestSalarioLiquido1300()
+        {
+            var salario = new Salario();
+            decimal resultado = salario.CalculoRendaLiquida(1300m, 0m, 143m);
+
+            Assert.AreEqual(1157m, resultado);
+        }
+
+
     }
 }

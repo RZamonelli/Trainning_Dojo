@@ -10,32 +10,27 @@ namespace INSS
     {
         static void Main(string[] args)
         {
-            double renda = 0, calculo_INSS = 0, calculo_IMP = 0, resultado = 0, liquido = 0;
             int dependentes = 0;
             int i, x, z;
+            decimal calculo_INSS = 0, renda = 0, calculo_IMP = 0, resultado = 0, liquido = 0;
 
             Console.WriteLine("CALCULADORA PARA CALCULAR O IMPOSTO DE RENDA - PADRAO: ");
             Console.WriteLine("DIGITE A RENDA MENSAL BRUTA: ");
-            renda = Convert.ToDouble(Console.ReadLine());
+            renda = Convert.ToDecimal(Console.ReadLine());
             Console.WriteLine("DIGITE O NUMERO DE DEPENDENTES: ");
             dependentes = Convert.ToInt32(Console.ReadLine());
 
-            if (renda <= 1399.12)
-            {
-                calculo_INSS = renda * 0.08;
-            }
-            if (renda >= 1399.13 && renda <= 2331.88)
-            {
-                calculo_INSS = renda * 0.09;
-            }
-            else
-            {
-                calculo_INSS = renda * 0.11;
-            }
-            
-            
+            var INSS = new CalculosINSS();
+            calculo_INSS = INSS.CalculoINSS(Convert.ToDecimal(renda));
 
-            liquido = renda - resultado - calculo_INSS;
+            var salario = new Salario();
+            calculo_IMP = salario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
+
+            var IRRF = new CalculoIRRF();
+            resultado = IRRF.CalcularIRRF(renda, dependentes);
+
+            liquido = salario.CalculoRendaLiquida(renda, resultado, calculo_INSS);
+
             Console.WriteLine("\nO Imposto INSS a ser aplicado e de: " +Convert.ToString(calculo_INSS));
             Console.WriteLine("O Imposto IMP a ser aplicado com a deducao de dependentes e de: " +Convert.ToString(resultado));
             Console.WriteLine("O Salario liquido a ser recebido e de: " +Convert.ToString(liquido));

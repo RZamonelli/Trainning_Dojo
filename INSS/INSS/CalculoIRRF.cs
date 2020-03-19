@@ -14,7 +14,8 @@ namespace INSS
 
         public decimal CalcularIRRF(decimal renda, int dependentes)
         {
-            var calculo_IMP = CalcularRendaLiquida(renda, dependentes);
+            var salario = new Salario();
+            var calculo_IMP = salario.CalcularDescontoDependentes(renda, dependentes);
             decimal resultado = 0;
 
             if (calculo_IMP <= 1903.98m)
@@ -37,11 +38,6 @@ namespace INSS
                 resultado = calculo_IMP * IRRF0275;
             }
             return resultado;
-        }
-
-        public decimal CalcularRendaLiquida(decimal renda, int dependentes)
-        {
-            return (renda - (dependentes * 189.59m));
         }
     }
 }
