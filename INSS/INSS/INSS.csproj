@@ -46,6 +46,7 @@
     <Compile Include="CalculosINSS.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CalculoIRRF.cs" />
+    <Compile Include="MensagemAplicacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Salario.cs" />

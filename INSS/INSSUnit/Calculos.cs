@@ -43,6 +43,31 @@ namespace INSSUnit
             Assert.AreEqual(1157m, resultado);
         }
 
+        [TestMethod]
+        public void TestDependentesString()
+        {
+            var msgApp = new MensagemAplicacao();
+            bool resultado = msgApp.ValidaDependentes("A");
 
+            Assert.AreEqual(false, resultado);
+        }
+
+        [TestMethod]
+        public void TestDependentesNoNegative()
+        {
+            var msgApp = new MensagemAplicacao();
+            bool resultado = msgApp.ValidaDependentes("-1");
+
+            Assert.AreEqual(false, resultado);
+        }
+
+        [TestMethod]
+        public void TestDependentesNoPositive()
+        {
+            var msgApp = new MensagemAplicacao();
+            bool resultado = msgApp.ValidaDependentes("1");
+
+            Assert.AreEqual(true, resultado);
+        }
     }
 }

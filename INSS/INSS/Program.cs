@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace INSS
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             int dependentes = 0;
             int i, x, z;
             decimal calculo_INSS = 0, renda = 0, calculo_IMP = 0, resultado = 0, liquido = 0;
-
-            Console.WriteLine("CALCULADORA PARA CALCULAR O IMPOSTO DE RENDA - PADRAO: ");
-            Console.WriteLine("DIGITE A RENDA MENSAL BRUTA: ");
-            renda = Convert.ToDecimal(Console.ReadLine());
-            Console.WriteLine("DIGITE O NUMERO DE DEPENDENTES: ");
-            dependentes = Convert.ToInt32(Console.ReadLine());
 
             var INSS = new CalculosINSS();
             calculo_INSS = INSS.CalculoINSS(Convert.ToDecimal(renda));
