@@ -69,5 +69,33 @@ namespace INSSUnit
 
             Assert.AreEqual(true, resultado);
         }
+
+        [TestMethod]
+        public void TestINSS4000()
+        {
+            var inss = new CalculosINSS();
+            decimal resultado = inss.CalculoINSS(4000m);
+
+            Assert.AreEqual(440m, resultado);
+        }
+
+        [TestMethod]
+        public void TestIRRF4000()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(4000m, 0);
+
+            Assert.AreEqual(1100m, resultado);
+        }
+
+        [TestMethod]
+        public void TestSalarioLiquido4000()
+        {
+            var salario = new Salario();
+            decimal resultado = salario.CalculoRendaLiquida(4000m, 1100m, 440m);
+
+            Assert.AreEqual(2460m, resultado);
+        }
+
     }
 }
