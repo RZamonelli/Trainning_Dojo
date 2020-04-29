@@ -114,6 +114,7 @@ namespace INSSUnit
             decimal resultado = inss.CalculoINSS(3000m);
             Assert.AreEqual(330m,resultado);
         }
+
         [TestMethod]
         public void TestIRRF3000()
         {
@@ -128,7 +129,7 @@ namespace INSSUnit
             var salario = new Salario();
             decimal resultado = salario.CalculoRendaLiquida(3000m, 450m, 330m);
             Assert.AreEqual(2220m,resultado);
-        }
+        
         [TestMethod]
         public void TestINSS4000()
         {
@@ -137,6 +138,7 @@ namespace INSSUnit
 
             Assert.AreEqual(440m, resultado);
         }
+
         [TestMethod]
         public void TestIRRF4000()
         {
@@ -153,6 +155,33 @@ namespace INSSUnit
             decimal resultado = salario.CalculoRendaLiquida(4000m, 1100m, 440m);
 
             Assert.AreEqual(2460m, resultado);
+        }
+
+        [TestMethod]
+        public void TestINSS4700()
+        {
+            var inss = new CalculosINSS();
+            decimal resultado = inss.CalculoINSS(4700m);
+
+            Assert.AreEqual(517m, resultado);
+        }
+
+        [TestMethod]
+        public void TestIRRF4700()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(4700m, 0);
+
+            Assert.AreEqual(0m, resultado);
+        }
+
+        [TestMethod]
+        public void TestSalarioLiquido4700()
+        {
+            var salario = new Salario();
+            decimal resultado = salario.CalculoRendaLiquida(4700m, 0m, 517m);
+
+            Assert.AreEqual(4183m, resultado);
         }
 
     }
