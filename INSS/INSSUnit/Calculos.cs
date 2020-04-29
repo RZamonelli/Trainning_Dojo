@@ -128,7 +128,9 @@ namespace INSSUnit
         {
             var salario = new Salario();
             decimal resultado = salario.CalculoRendaLiquida(3000m, 450m, 330m);
-            Assert.AreEqual(2220m,resultado);
+            Assert.AreEqual(2220m, resultado);
+
+        }
         
         [TestMethod]
         public void TestINSS4000()
