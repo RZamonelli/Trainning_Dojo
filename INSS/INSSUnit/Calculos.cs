@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Emit;
 using INSS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -105,6 +106,30 @@ namespace INSSUnit
 
             Assert.AreEqual(1818m, resultado);
         }
+
+        [TestMethod]
+        public void TestINSS3000()
+        {
+            var inss = new CalculosINSS();
+            decimal resultado = inss.CalculoINSS(3000m);
+            Assert.AreEqual(330m,resultado);
+        }
+        [TestMethod]
+        public void TestIRRF3000()
+        {
+            var inss = new CalculoIRRF();
+            decimal resultado = inss.CalcularIRRF(3000m, 0);
+            Assert.AreEqual(450m, resultado);
+        }
+
+        [TestMethod]
+        public void TestSalarioLiquido3000()
+        {
+            var salario = new Salario();
+            decimal resultado = salario.CalculoRendaLiquida(3000m, 450m, 330m);
+            Assert.AreEqual(2220m,resultado);
+        }
+        [TestMethod]
         public void TestINSS4000()
         {
             var inss = new CalculosINSS();
@@ -112,7 +137,6 @@ namespace INSSUnit
 
             Assert.AreEqual(440m, resultado);
         }
-
         [TestMethod]
         public void TestIRRF4000()
         {
