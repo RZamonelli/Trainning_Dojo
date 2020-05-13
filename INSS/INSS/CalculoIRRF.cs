@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using INSS.Util;
 
 namespace INSS
 {
     public class CalculoIRRF
     {
-        const decimal IRRF0075 = 0.075m;
-        const decimal IRRF015 = 0.15m;
-        const decimal IRRF0275 = 0.275m;
-
         public decimal CalcularIRRF(decimal renda, int dependentes)
         {
             var salario = new Salario();
@@ -25,17 +22,17 @@ namespace INSS
             else
             if (calculo_IMP >= 1903.08m && calculo_IMP <= 2826.65m)
             {
-                resultado = calculo_IMP * IRRF0075;
+                resultado = calculo_IMP * ConstantIRRF.IRRF0075;
             }
             else
             if (calculo_IMP >= 2826.65m && calculo_IMP <= 3751.05m)
             {
-                resultado = calculo_IMP * IRRF015;
+                resultado = calculo_IMP * ConstantIRRF.IRRF015;
             }
             else
             if (calculo_IMP >= 3751.05m && calculo_IMP <= 4664.68m)
             {
-                resultado = calculo_IMP * IRRF0275;
+                resultado = calculo_IMP * ConstantIRRF.IRRF0275;
             }
             return resultado;
         }
