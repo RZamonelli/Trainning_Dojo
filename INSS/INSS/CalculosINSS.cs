@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using INSS.Util;
 
 namespace INSS
 {
+   
     public class CalculosINSS
     {
-        private const decimal INSS008 = 0.08m;
-        private const decimal INSS009 = 0.09m;
-        private const decimal INSS011 = 0.11m;
-        private const decimal RendaMax008 = 1399.12m;
-        private const decimal RendaMin009 = 1399.13m;
-        private const decimal RendaMax009 = 2331.88m;
-
-
-
         //bool IsInss008v 
         public decimal CalculoINSS(decimal renda)
         {
@@ -37,11 +30,11 @@ namespace INSS
             switch (renda)
             {
                 case var expression when renda <= 1399.12m:
-                    return formulaINSS(renda, INSS008);
+                    return formulaINSS(renda, ConstantINSS.INSS008);
                 case var expression when (renda >= 1399.13m && renda <= 2331.88m):
-                    return formulaINSS(renda, INSS009);
+                    return formulaINSS(renda, ConstantINSS.INSS009);
                 default:
-                    return formulaINSS(renda, INSS011);
+                    return formulaINSS(renda, ConstantINSS.INSS011);
             }
 
            
