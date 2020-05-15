@@ -14,7 +14,7 @@ namespace INSSUnit
             var inss = new CalculosINSS();
             decimal resultado = inss.CalculoINSS(1300m);
 
-            Assert.AreEqual(143m, resultado);
+            Assert.AreEqual(104.00m, resultado);
         }
 
         [TestMethod]
