@@ -86,8 +86,9 @@ namespace INSSUnit
         [TestMethod]
         public void TestDependents2000()
         {
-            var dependents = new Remuneracao();
-            decimal resultado = dependents.CalcularDescontoDependentes(2000m, 2);
+            var dependents = new Dependentes();
+            dependents.LerDependentes(2);
+            decimal resultado = dependents.CalcularDescontoDependentes(2000m);
 
             Assert.AreEqual(1620.82m, resultado);
         }
