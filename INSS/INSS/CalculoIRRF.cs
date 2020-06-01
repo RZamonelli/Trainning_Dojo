@@ -11,7 +11,7 @@ namespace INSS
     {
         public decimal CalcularIRRF(decimal renda, int dependentes)
         {
-            var salario = new Salario();
+            var salario = new Remuneracao();
             var rendaDependentes = salario.CalcularDescontoDependentes(renda, dependentes);
             return CalcularSalarioIRRF(rendaDependentes);
         }

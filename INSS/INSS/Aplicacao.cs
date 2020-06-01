@@ -12,14 +12,14 @@ namespace INSS
         decimal renda = 0, calculo_INSS = 0, calculo_IMP = 0, calculo_IRRF = 0, salarioLiquido = 0;
         int dependentes = 0;
         readonly CalculosINSS objINSS = null;
-        readonly Salario objSalario = null;
+        readonly Remuneracao objSalario = null;
         readonly CalculoIRRF objIRRF = null;
 
         public Aplicacao()
         {
             objINSS = new CalculosINSS();
             objIRRF = new CalculoIRRF();
-            objSalario = new Salario();
+            objSalario = new Remuneracao();
         }
 
         private void CapturarInputs()
@@ -74,11 +74,11 @@ namespace INSS
         {
             calculo_INSS = objINSS.CalculoINSS(Convert.ToDecimal(renda));
 
-            calculo_IMP = objSalario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
+            //calculo_IMP = objSalario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
 
             calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
 
-            salarioLiquido = objSalario.CalculoRendaLiquida(renda, calculo_IRRF, calculo_INSS);
+            //salarioLiquido = objSalario.CalculoRendaLiquida(renda, calculo_IRRF, calculo_INSS);
         }
     }
 }

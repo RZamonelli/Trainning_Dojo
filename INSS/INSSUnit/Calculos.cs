@@ -20,7 +20,7 @@ namespace INSSUnit
         [TestMethod]
         public void TestDependents1300()
         {
-            var dependents = new Salario();
+            var dependents = new Remuneracao();
             decimal resultado = dependents.CalcularDescontoDependentes(1300m, 0);
 
             Assert.AreEqual(1300m, resultado);
@@ -38,8 +38,11 @@ namespace INSSUnit
         [TestMethod]
         public void TestSalarioLiquido1300()
         {
-            var salario = new Salario();
-            decimal resultado = salario.CalculoRendaLiquida(1300m, 0m, 143m);
+            var salario = new Remuneracao();
+            salario.LerRendaBruta(1300m);
+            salario.ValorIRRF = 0m;
+            salario.ValorINNS = 143m;
+            decimal resultado = salario.CalculoRendaLiquida();
 
             Assert.AreEqual(1157m, resultado);
         }
@@ -83,7 +86,7 @@ namespace INSSUnit
         [TestMethod]
         public void TestDependents2000()
         {
-            var dependents = new Salario();
+            var dependents = new Remuneracao();
             decimal resultado = dependents.CalcularDescontoDependentes(2000m, 2);
 
             Assert.AreEqual(1620.82m, resultado);
@@ -101,8 +104,11 @@ namespace INSSUnit
         [TestMethod]
         public void TestSalarioLiquido2000()
         {
-            var salario = new Salario();
-            decimal resultado = salario.CalculoRendaLiquida(2000m, 2m, 180m);
+            var salario = new Remuneracao();
+            salario.LerRendaBruta(2000m);
+            salario.ValorIRRF = 2m;
+            salario.ValorINNS = 180m;
+            decimal resultado = salario.CalculoRendaLiquida();
 
             Assert.AreEqual(1818m, resultado);
         }
@@ -126,8 +132,11 @@ namespace INSSUnit
         [TestMethod]
         public void TestSalarioLiquido3000()
         {
-            var salario = new Salario();
-            decimal resultado = salario.CalculoRendaLiquida(3000m, 450m, 330m);
+            var salario = new Remuneracao();
+            salario.LerRendaBruta(3000m);
+            salario.ValorIRRF = 450m;
+            salario.ValorINNS = 330m;
+            decimal resultado = salario.CalculoRendaLiquida();
             Assert.AreEqual(2220m, resultado);
 
         }
@@ -153,8 +162,11 @@ namespace INSSUnit
         [TestMethod]
         public void TestSalarioLiquido4000()
         {
-            var salario = new Salario();
-            decimal resultado = salario.CalculoRendaLiquida(4000m, 1100m, 440m);
+            var salario = new Remuneracao();
+            salario.LerRendaBruta(4000m);
+            salario.ValorIRRF = 1100m;
+            salario.ValorINNS = 440m;
+            decimal resultado = salario.CalculoRendaLiquida();
 
             Assert.AreEqual(2460m, resultado);
         }
@@ -180,8 +192,11 @@ namespace INSSUnit
         [TestMethod]
         public void TestSalarioLiquido4700()
         {
-            var salario = new Salario();
-            decimal resultado = salario.CalculoRendaLiquida(4700m, 0m, 517m);
+            var salario = new Remuneracao();
+            salario.LerRendaBruta(4700m);
+            salario.ValorIRRF = 0m;
+            salario.ValorINNS = 517m;
+            decimal resultado = salario.CalculoRendaLiquida();
 
             Assert.AreEqual(4183m, resultado);
         }
