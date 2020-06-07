@@ -7,30 +7,85 @@ using INSS.Util;
 
 namespace INSS
 {
-    public class CalculoIRRF
+    public abstract class CalculoIRRF
     {
-        public decimal CalcularIRRF(decimal renda, int dependentes)
-        {
-            var salario = new Remuneracao();
-            var rendaDependentes = salario.CalcularDescontoDependentes(renda, dependentes);
-            return CalcularSalarioIRRF(rendaDependentes);
-        }
+        public abstract decimal CalcularIRRF(decimal rendaDependentes);
+    }
 
-        private static decimal CalcularSalarioIRRF(decimal rendaDependentes)
+    class FaixaUm: CalculoIRRF
+    {
+        public override decimal CalcularIRRF(decimal rendaDependentes)
         {
-            switch (rendaDependentes)
-            {
-                case var renda when renda <= ConstantIRRF.RENDA190398:
-                    return 0;
-                case var renda when renda > ConstantIRRF.RENDA190398 && renda <= ConstantIRRF.RENDA282665:
-                    return rendaDependentes * ConstantIRRF.IRRF0075;
-                case var renda when renda > ConstantIRRF.RENDA282665 && renda <= ConstantIRRF.RENDA375105:
-                    return rendaDependentes * ConstantIRRF.IRRF015;
-                case var renda when renda > ConstantIRRF.RENDA375105 && renda <= ConstantIRRF.RENDA466468:
-                    return rendaDependentes * ConstantIRRF.IRRF0275;
-                default:
-                    return 0;
-            }
+            return 0;
         }
     }
+
+    class FaixaDois: CalculoIRRF
+    {
+        public override decimal CalcularIRRF(decimal rendaDependentes)
+        {
+            return rendaDependentes * ConstantIRRF.IRRF0075;
+        }
+    }
+
+    class FaixaTres: CalculoIRRF
+    {
+        public override decimal CalcularIRRF(decimal rendaDependentes)
+        {
+            return rendaDependentes * ConstantIRRF.IRRF015;
+        }
+    }
+    class FaixaQuatro: CalculoIRRF
+    {
+        public override decimal CalcularIRRF(decimal rendaDependentes)
+        {
+            return rendaDependentes * ConstantIRRF.IRRF0275;
+        }
+    }
+
+
+    /* public class CalculoIRRF
+ {
+     private Dependentes dependente;
+     private decimal RemuDescDependente;
+
+     public decimal GetRemuDescDependente()
+     {
+         return RemuDescDependente;
+     }
+
+     public void SetRemuDescDependente(decimal value)
+     {
+         RemuDescDependente = value;
+     }
+
+     public CalculoIRRF(Dependentes CalcDependente)
+     {
+         dependente = CalcDependente;
+     }
+     public decimal CalcularIRRF(decimal renda, int dependentes)
+     {
+         var rendaDependentes = dependente.CalcularDescontoDependentes(renda);
+         CalculoIRRF2 teste = new FaixaUm();
+         teste.CalcularIRRF(rendaDependentes);
+         return 0;//new FaixaUm().CalcularSalarioIRRF(rendaDependentes);
+     }
+
+     private static decimal CalcularSalarioIRRF(decimal rendaDependentes)
+     {
+         switch (rendaDependentes)
+         {
+             case var renda when renda <= ConstantIRRF.RENDA190398:
+                 return 0;
+             case var renda when renda > ConstantIRRF.RENDA190398 && renda <= ConstantIRRF.RENDA282665:
+                 return rendaDependentes * ConstantIRRF.IRRF0075;
+             case var renda when renda > ConstantIRRF.RENDA282665 && renda <= ConstantIRRF.RENDA375105:
+                 return rendaDependentes * ConstantIRRF.IRRF015;
+             case var renda when renda > ConstantIRRF.RENDA375105 && renda <= ConstantIRRF.RENDA466468:
+                 return rendaDependentes * ConstantIRRF.IRRF0275;
+             default:
+                 return 0;
+         }
+     }
+ }*/
 }
