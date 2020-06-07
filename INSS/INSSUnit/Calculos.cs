@@ -18,24 +18,6 @@ namespace INSSUnit
         }
 
         [TestMethod]
-        public void TestDependents1300()
-        {
-            var dependents = new Remuneracao();
-            decimal resultado = dependents.CalcularDescontoDependentes(1300m, 0);
-
-            Assert.AreEqual(1300m, resultado);
-        }
-
-        [TestMethod]
-        public void TestIRRF1300()
-        {
-            var irrf = new CalculoIRRF();
-            decimal resultado = irrf.CalcularIRRF(1300m, 0);
-
-            Assert.AreEqual(0m, resultado);
-        }
-
-        [TestMethod]
         public void TestSalarioLiquido1300()
         {
             var salario = new Remuneracao();
@@ -91,16 +73,7 @@ namespace INSSUnit
             decimal resultado = dependents.CalcularDescontoDependentes(2000m);
 
             Assert.AreEqual(1620.82m, resultado);
-        }
-
-        [TestMethod]
-        public void TestIRRF2000()
-        {
-            var irrf = new CalculoIRRF();
-            decimal resultado = irrf.CalcularIRRF(2000m, 2);
-
-            Assert.AreEqual(0m, resultado);
-        }
+        }     
 
         [TestMethod]
         public void TestSalarioLiquido2000()
@@ -120,15 +93,7 @@ namespace INSSUnit
             var inss = new CalculosINSS();
             decimal resultado = inss.CalculoINSS(3000m);
             Assert.AreEqual(330m,resultado);
-        }
-
-        [TestMethod]
-        public void TestIRRF3000()
-        {
-            var inss = new CalculoIRRF();
-            decimal resultado = inss.CalcularIRRF(3000m, 0);
-            Assert.AreEqual(450m, resultado);
-        }
+        }       
 
         [TestMethod]
         public void TestSalarioLiquido3000()
@@ -150,16 +115,7 @@ namespace INSSUnit
 
             Assert.AreEqual(440m, resultado);
         }
-
-        [TestMethod]
-        public void TestIRRF4000()
-        {
-            var irrf = new CalculoIRRF();
-            decimal resultado = irrf.CalcularIRRF(4000m, 0);
-
-            Assert.AreEqual(1100m, resultado);
-        }
-
+               
         [TestMethod]
         public void TestSalarioLiquido4000()
         {
@@ -179,16 +135,7 @@ namespace INSSUnit
             decimal resultado = inss.CalculoINSS(4700m);
 
             Assert.AreEqual(517m, resultado);
-        }
-
-        [TestMethod]
-        public void TestIRRF4700()
-        {
-            var irrf = new CalculoIRRF();
-            decimal resultado = irrf.CalcularIRRF(4700m, 0);
-
-            Assert.AreEqual(0m, resultado);
-        }
+        }             
 
         [TestMethod]
         public void TestSalarioLiquido4700()
@@ -201,6 +148,61 @@ namespace INSSUnit
 
             Assert.AreEqual(4183m, resultado);
         }
+
+        /*  [TestMethod]
+          public void TestDependents1300()
+          {
+              var dependents = new Remuneracao();
+              decimal resultado = dependents.CalcularDescontoDependentes(1300m, 0);
+
+              Assert.AreEqual(1300m, resultado);
+          }  
+            [TestMethod]
+        public void TestIRRF1300()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(1300m, 0);
+
+            Assert.AreEqual(0m, resultado);
+        }
+		
+		
+		  [TestMethod]
+        public void TestIRRF2000()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(2000m, 2);
+
+            Assert.AreEqual(0m, resultado);
+        }
+		
+		 [TestMethod]
+        public void TestIRRF3000()
+        {
+            var inss = new CalculoIRRF();
+            decimal resultado = inss.CalcularIRRF(3000m, 0);
+            Assert.AreEqual(450m, resultado);
+        }
+		
+		 [TestMethod]
+        public void TestIRRF4000()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(4000m, 0);
+
+            Assert.AreEqual(1100m, resultado);
+        }
+		
+		 [TestMethod]
+        public void TestIRRF4700()
+        {
+            var irrf = new CalculoIRRF();
+            decimal resultado = irrf.CalcularIRRF(4700m, 0);
+
+            Assert.AreEqual(0m, resultado);
+        }
+
+         */
 
     }
 }

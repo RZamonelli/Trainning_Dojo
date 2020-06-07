@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Calculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTCalculoIRRF.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -11,31 +11,28 @@ namespace INSS
     {
         public abstract decimal CalcularIRRF(decimal rendaDependentes);
     }
-
-    class FaixaUm: CalculoIRRF
+    public class FaixaUm: CalculoIRRF
     {
         public override decimal CalcularIRRF(decimal rendaDependentes)
         {
             return 0;
         }
     }
-
-    class FaixaDois: CalculoIRRF
+    public class FaixaDois: CalculoIRRF
     {
         public override decimal CalcularIRRF(decimal rendaDependentes)
         {
             return rendaDependentes * ConstantIRRF.IRRF0075;
         }
     }
-
-    class FaixaTres: CalculoIRRF
+    public class FaixaTres: CalculoIRRF
     {
         public override decimal CalcularIRRF(decimal rendaDependentes)
         {
             return rendaDependentes * ConstantIRRF.IRRF015;
         }
     }
-    class FaixaQuatro: CalculoIRRF
+    public class FaixaQuatro: CalculoIRRF
     {
         public override decimal CalcularIRRF(decimal rendaDependentes)
         {

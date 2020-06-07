@@ -18,7 +18,7 @@ namespace INSS
         public Aplicacao()
         {
             objINSS = new CalculosINSS();
-            objIRRF = new CalculoIRRF();
+          //  objIRRF = new CalculoIRRF();
             objSalario = new Remuneracao();
         }
 
@@ -76,7 +76,7 @@ namespace INSS
 
             //calculo_IMP = objSalario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
 
-            calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
+            //calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
 
             //salarioLiquido = objSalario.CalculoRendaLiquida(renda, calculo_IRRF, calculo_INSS);
         }
