@@ -53,6 +53,7 @@
     <Compile Include="ImpostoINSSUT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UTCalculoIRRF.cs" />
+    <Compile Include="UTRemuneracao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

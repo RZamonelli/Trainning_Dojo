@@ -78,7 +78,8 @@ namespace INSS
 
             //calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
 
-            //salarioLiquido = objSalario.CalculoRendaLiquida(renda, calculo_IRRF, calculo_INSS);
+            objSalario.LerRendaBruta(renda);
+            salarioLiquido = objSalario.CalculoRendaLiquida();
         }
     }
 }

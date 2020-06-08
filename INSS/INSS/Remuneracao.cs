@@ -8,15 +8,10 @@ namespace INSS
 {
     public class Remuneracao
     {
-        private decimal valorBruto;
-        private decimal valorIRRF;
-        private decimal valorINNS;
-        private decimal rendaLiquida;
-
-        public decimal ValorBruto { get => valorBruto; set => valorBruto = value; }
-        public decimal ValorIRRF { get => valorIRRF; set => valorIRRF = value; }
-        public decimal ValorINNS { get => valorINNS; set => valorINNS = value; }
-        public decimal RendaLiquida { get => rendaLiquida; set => rendaLiquida = value; }
+        public decimal ValorBruto { get; private set; }
+        public decimal ValorIRRF { get; set; }
+        public decimal ValorINNS { get; set; }
+        public decimal RendaLiquida { get; set; }
 
         public decimal CalculoRendaLiquida()
         {
