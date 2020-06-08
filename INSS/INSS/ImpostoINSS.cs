@@ -1,9 +1,10 @@
-unsing system;
+using System;
+using INSS.Util;
 
 
 namespace ImpostoINSS {
 
-    class ImpostoINSS {
+    public class ImpostoINSS {
         public  decimal GetAliquotaINSS(decimal RendaBruta){
             
             if (RendaBruta <= 1399.12m ){
@@ -16,7 +17,7 @@ namespace ImpostoINSS {
         
         }
 
-        public decimal CalcualrInss(decimal RendaBruta) {
+        public decimal CalcularInss(decimal RendaBruta) {
             return RendaBruta * GetAliquotaINSS(RendaBruta);
         }
     }
