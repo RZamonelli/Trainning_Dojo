@@ -34,7 +34,7 @@ namespace INSS
             return rgx.IsMatch(dependentes);
         }
 
-        private void LerDependentes()
+        private int LerDependentes()
         {
             var dependentes = "";
             Console.WriteLine("DIGITE O NUMERO DE DEPENDENTES: ");
@@ -44,7 +44,7 @@ namespace INSS
             {
                 Console.WriteLine("INPUT INCORRETO, FAVOR INFORMAR NOVAMENTE!");
             }
-            objDep.LerDependentes(int.Parse(dependentes));
+            return int.Parse(dependentes);
         }
 
         private decimal LerRendaBruta()
@@ -74,9 +74,9 @@ namespace INSS
         {
             calculo_INSS = objINSS.CalculoINSS(Convert.ToDecimal(renda));
 
-            calculo_IMP = objDep.CalcularDescontoDependentes(renda);
-            calculo_IRRF = objIRRF.CalcularIRRF(calculo_IMP);
+            //calculo_IMP = objSalario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
 
+            //calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
 
             objSalario.LerRendaBruta(renda);
             salarioLiquido = objSalario.CalculoRendaLiquida();
