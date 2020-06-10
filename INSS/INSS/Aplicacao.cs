@@ -10,10 +10,10 @@ namespace INSS
     public class Aplicacao
     {
         decimal renda = 0, calculo_INSS = 0, calculo_IMP = 0, calculo_IRRF = 0, salarioLiquido = 0;
-        int dependentes = 0;
         readonly CalculosINSS objINSS = null;
         readonly Remuneracao objSalario = null;
         readonly CalculoIRRF objIRRF = null;
+        readonly Dependentes objDep = null;
 
         public Aplicacao()
         {
@@ -25,7 +25,7 @@ namespace INSS
         private void CapturarInputs()
         {
             renda = LerRendaBruta();
-            dependentes = LerDependentes();
+            LerDependentes();
         }
 
         public bool ValidaDependentes(string dependentes)
@@ -34,7 +34,7 @@ namespace INSS
             return rgx.IsMatch(dependentes);
         }
 
-        private int LerDependentes()
+        private void LerDependentes()
         {
             var dependentes = "";
             Console.WriteLine("DIGITE O NUMERO DE DEPENDENTES: ");
@@ -44,7 +44,7 @@ namespace INSS
             {
                 Console.WriteLine("INPUT INCORRETO, FAVOR INFORMAR NOVAMENTE!");
             }
-            return int.Parse(dependentes);
+            objDep.LerDependentes(int.Parse(dependentes));
         }
 
         private decimal LerRendaBruta()
@@ -74,9 +74,8 @@ namespace INSS
         {
             calculo_INSS = objINSS.CalculoINSS(Convert.ToDecimal(renda));
 
-            //calculo_IMP = objSalario.CalcularDescontoDependentes(Convert.ToDecimal(renda), dependentes);
-
-            //calculo_IRRF = objIRRF.CalcularIRRF(renda, dependentes);
+            calculo_IMP = objDep.CalcularDescontoDependentes(Convert.ToDecimal(renda));
+            calculo_IRRF = objIRRF.CalcularIRRF(calculo_IMP);
 
             objSalario.LerRendaBruta(renda);
             salarioLiquido = objSalario.CalculoRendaLiquida();
