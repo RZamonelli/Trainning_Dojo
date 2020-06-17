@@ -9,36 +9,36 @@ namespace INSSUnit
     [TestClass]
     public class ImpostoINSSUT    
     {
-        
+
 
         [TestMethod]
-        public void TestGetAliquota()
+        public void TestINSSFaixa1()
         {
-            var ImpostoINSS = new ImpostoINSS.ImpostoINSS();
+            var ImpostoINSS1 = new ImpostoINSS.FaixaINSS1();
 
-            decimal Aliquota1 = ImpostoINSS.GetAliquotaINSS(1399.10m);
-            decimal Aliquota2 = ImpostoINSS.GetAliquotaINSS(2300.11m);
-            decimal Aliquota3 = ImpostoINSS.GetAliquotaINSS(2500.10m);
+            decimal ValorFaixa1 = ImpostoINSS1.CalcularINSS(1300.00m);
 
-            Assert.AreEqual(ConstantINSS.INSS008, Aliquota1);
-            Assert.AreEqual(ConstantINSS.INSS009, Aliquota2);
-            Assert.AreEqual(ConstantINSS.INSS011, Aliquota3);
-
+            Assert.AreEqual(104m, ValorFaixa1);
         }
 
         [TestMethod]
-        public void TestCalculoImpostoInss()
+        public void TestINSSFaixa2()
         {
-            var ImpostoINSS = new ImpostoINSS.ImpostoINSS();
+            var ImpostoINSS2 = new ImpostoINSS.FaixaINSS2();
 
-            decimal ValorInssTest1 = ImpostoINSS.CalcularInss(1300.00m);
-            decimal ValorInssTest2 = ImpostoINSS.CalcularInss(2330.00m);
-            decimal ValorInssTest3 = ImpostoINSS.CalcularInss(2900.00m);
+            decimal ValorFaixa2 = ImpostoINSS2.CalcularINSS(2330.00m);
 
-            Assert.AreEqual(104.00m, ValorInssTest1);
-            Assert.AreEqual(209.70m, ValorInssTest2);
-            Assert.AreEqual(319.00m, ValorInssTest3);
+            Assert.AreEqual(209.70m, ValorFaixa2);
+        }
 
+        [TestMethod]
+        public void TestINSSFaixa3()
+        {
+            var ImpostoINSS3 = new ImpostoINSS.FaixaINSS3();
+
+            decimal ValorFaixa3 = ImpostoINSS3.CalcularINSS(2900.00m);
+
+            Assert.AreEqual(319.00m, ValorFaixa3);
         }
     }
 }

@@ -1,24 +1,36 @@
 using System;
+using INSS;
 using INSS.Util;
 
 
-namespace ImpostoINSS {
+namespace ImpostoINSS
+{
 
-    public class ImpostoINSS {
-        public  decimal GetAliquotaINSS(decimal RendaBruta){
-            
-            if (RendaBruta <= 1399.12m ){
-                return ConstantINSS.INSS008;
-            } else if (RendaBruta >= 1399.13m && RendaBruta <= 2331.88m) {
-                return ConstantINSS.INSS009;
-            } else {
-                return ConstantINSS.INSS011;
-            }
-        
+    public abstract class ImpostoINSS
+    {
+        public abstract decimal CalcularINSS(decimal ValorRendaBruta);
+    }
+
+    public class FaixaINSS1: ImpostoINSS
+    {
+        public override decimal CalcularINSS(decimal ValorRendaBruta)
+        {
+            return ConstantINSS.INSS008 * ValorRendaBruta;
         }
+    }
 
-        public decimal CalcularInss(decimal RendaBruta) {
-            return RendaBruta * GetAliquotaINSS(RendaBruta);
+    public class FaixaINSS2: ImpostoINSS
+    {
+        public override decimal CalcularINSS(decimal ValorRendaBruta)
+        {
+            return ConstantINSS.INSS009 * ValorRendaBruta;
+        }
+    }
+    public class FaixaINSS3: ImpostoINSS
+    {
+        public override decimal CalcularINSS(decimal ValorRendaBruta)
+        {
+            return ConstantINSS.INSS011 * ValorRendaBruta;
         }
     }
 }
