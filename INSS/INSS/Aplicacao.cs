@@ -18,8 +18,9 @@ namespace INSS
         public Aplicacao()
         {
             objINSS = new CalculosINSS();
-          //  objIRRF = new CalculoIRRF();
+            //objIRRF = new CalculoIRRF();
             objSalario = new Remuneracao();
+            objDep = new Dependentes();
         }
 
         private void CapturarInputs()
